@@ -13,7 +13,6 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/employees")
-
 public class EmployeeController {
 //    private final EmployeeRepository employeeRepository;
 
@@ -23,6 +22,14 @@ public class EmployeeController {
 //    return employeeRepository.getAllEmployees();
        return employeeService.getAllEmployees();
     }
-    
+
+    @GetMapping("/sort/firstName")
+    public List<Employee> getAllEmployeesSortByName(){
+        return employeeService.getAllEmployeesSortByName();
+    }
+    @GetMapping("/sort/dateOfJoin")
+    public List<Employee> getAllEmployeesSortByDateOfJoin(){
+        return employeeService.getAllEmployeesSortByDateOfJoin();
+    }
 
 }
