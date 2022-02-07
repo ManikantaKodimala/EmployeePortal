@@ -31,5 +31,8 @@ public class EmployeeController {
     public List<Employee> getAllEmployeesSortByDateOfJoin(){
         return employeeService.getAllEmployeesSortByDateOfJoin();
     }
-
+    @PostMapping("")
+    public Employee createEmployee(@RequestBody Employee employee){
+        return employeeService.createEmployee(employee);
+    }
 }
