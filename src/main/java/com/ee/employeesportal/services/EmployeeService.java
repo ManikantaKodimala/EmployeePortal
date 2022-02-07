@@ -29,4 +29,8 @@ public class EmployeeService {
     public List<Employee> getAllEmployeesSortByDateOfJoin() {
         return jpaEmployeeRepository.findAllByOrderByDateOfJoin();
     }
+
+    public Employee updateEmployeeDetails(Employee employee) {
+        return jpaEmployeeRepository.save(employee);
+    }
 }

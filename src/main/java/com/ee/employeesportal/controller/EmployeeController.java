@@ -31,5 +31,8 @@ public class EmployeeController {
     public List<Employee> getAllEmployeesSortByDateOfJoin(){
         return employeeService.getAllEmployeesSortByDateOfJoin();
     }
-
+    @PutMapping("/")
+    public Employee updateEmployeeDetails(@RequestBody Employee employee){
+        return employeeService.updateEmployeeDetails(employee);
+    }
 }
