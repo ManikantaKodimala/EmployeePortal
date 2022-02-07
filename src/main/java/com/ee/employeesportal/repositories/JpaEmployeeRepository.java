@@ -9,4 +9,6 @@ public interface JpaEmployeeRepository extends JpaRepository<Employee,Long> {
     List<Employee> findAllByOrderByFirstNameAsc();
 
     List<Employee> findAllByOrderByDateOfJoin();
+
+    List<Employee> findAllByFirstName(String firstName);
 }

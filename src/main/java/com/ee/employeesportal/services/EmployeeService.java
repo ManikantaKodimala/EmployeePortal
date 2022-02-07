@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor
@@ -28,5 +29,17 @@ public class EmployeeService {
 
     public List<Employee> getAllEmployeesSortByDateOfJoin() {
         return jpaEmployeeRepository.findAllByOrderByDateOfJoin();
+    }
+
+    public Employee getEmployeeById(Long empId) {
+        Optional<Employee> byId = jpaEmployeeRepository.findById(empId);
+        if(byId.isEmpty()){
+            throw new RuntimeException("employ id is not found");
+        }
+        return byId.get();
+    }
+
+    public List<Employee> getEmployeeByFirstName(String firstName) {
+        return jpaEmployeeRepository.findAllByFirstName(firstName);
     }
 }
