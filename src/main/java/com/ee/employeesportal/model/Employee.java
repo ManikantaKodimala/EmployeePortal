@@ -27,7 +27,5 @@ public class Employee {
     private String designation;
     private int experience;
     private String bio;
-//    private Address presentAddress;
-//    private Address permanentAddress;
 
 }
