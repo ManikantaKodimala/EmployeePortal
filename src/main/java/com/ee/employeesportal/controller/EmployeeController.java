@@ -14,25 +14,18 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/api/employees")
 public class EmployeeController {
-//    private final EmployeeRepository employeeRepository;
-
     private final EmployeeService employeeService;
     @GetMapping("")
     public List<Employee> getAllEmployees(){
-//    return employeeRepository.getAllEmployees();
        return employeeService.getAllEmployees();
     }
 
-    @GetMapping("/sort/firstName")
-    public List<Employee> getAllEmployeesSortByName(){
-        return employeeService.getAllEmployeesSortByName();
-    }
-    @GetMapping("/sort/dateOfJoin")
-    public List<Employee> getAllEmployeesSortByDateOfJoin(){
-        return employeeService.getAllEmployeesSortByDateOfJoin();
-    }
     @PutMapping("/{id}")
-    public Employee updateEmployeeDetails(@PathVariable("id") long id,@RequestBody Employee employee){
-        return employeeService.updateEmployeeDetails(employee);
+    public ResponseEntity<Employee> updateEmployeeDetails(@PathVariable("id") long id,@RequestBody Employee employee){
+        Employee employeeDetails = employeeService.updateEmployeeDetails(employee, id);
+        if( employeeDetails== null){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        }
+        return ResponseEntity.ok(employeeDetails);
     }
 }

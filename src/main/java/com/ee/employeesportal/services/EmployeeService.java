@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor
@@ -22,15 +23,12 @@ public class EmployeeService {
         return jpaEmployeeRepository.save(employee);
     }
 
-    public List<Employee> getAllEmployeesSortByName() {
-        return jpaEmployeeRepository.findAllByOrderByFirstNameAsc();
-    }
-
-    public List<Employee> getAllEmployeesSortByDateOfJoin() {
-        return jpaEmployeeRepository.findAllByOrderByDateOfJoin();
-    }
-
-    public Employee updateEmployeeDetails(Employee employee) {
-        return jpaEmployeeRepository.save(employee);
+    public Employee updateEmployeeDetails(Employee newEmployee, long id) {
+        Optional<Employee> employee=jpaEmployeeRepository.findById(id);
+        if(employee.isEmpty()){
+            return null;
+        }
+        newEmployee.setEmpId(id);
+        return jpaEmployeeRepository.save(newEmployee);
     }
 }
