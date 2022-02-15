@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface JpaEmployeeRepository extends JpaRepository<Employee,Integer> {
+public interface JpaEmployeeRepository extends JpaRepository<Employee,Long> {
     List<Employee> findAllByOrderByFirstNameAsc();
 
     List<Employee> findAllByOrderByDateOfJoin();
