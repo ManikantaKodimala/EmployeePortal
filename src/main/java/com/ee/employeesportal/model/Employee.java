@@ -1,21 +1,17 @@
 package com.ee.employeesportal.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Setter
+@Getter
 @Entity
 @Table(name = "employee")
 public class Employee {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long empId;
     private String firstName;
     private String lastName;
@@ -27,7 +23,11 @@ public class Employee {
     private String designation;
     private int experience;
     private String bio;
-//    private Address presentAddress;
-//    private Address permanentAddress;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "presentAddressId")
+    private Address presentAddress;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "permanentAddressId")
+    private Address permanentAddress;
 
 }
