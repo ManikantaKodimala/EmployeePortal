@@ -1,31 +1,38 @@
 package com.ee.employeesportal.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Setter
+@Getter
 @Entity
 @Table(name = "employee")
 public class Employee {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long empId;
     private String firstName;
     private String lastName;
     private String everestMailId;
+    @Email
     private String personalMailId;
+    @Size(min=4)
     private String password;
     private LocalDate dateOfBirth;
     private LocalDate dateOfJoin;
     private String designation;
+    @Min(0)
     private int experience;
     private String bio;
-
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "presentAddressId")
+    private Address presentAddress;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "permanentAddressId")
+    private Address permanentAddress;
 }
