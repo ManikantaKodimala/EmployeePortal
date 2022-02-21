@@ -14,23 +14,9 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/api/employees")
 public class EmployeeController {
-//    private final EmployeeRepository employeeRepository;
 
     private final EmployeeService employeeService;
-    @GetMapping("")
-    public List<Employee> getAllEmployees(){
-//    return employeeRepository.getAllEmployees();
-       return employeeService.getAllEmployees();
-    }
 
-    @GetMapping("/sort/firstName")
-    public List<Employee> getAllEmployeesSortByName(){
-        return employeeService.getAllEmployeesSortByName();
-    }
-    @GetMapping("/sort/dateOfJoin")
-    public List<Employee> getAllEmployeesSortByDateOfJoin(){
-        return employeeService.getAllEmployeesSortByDateOfJoin();
-    }
     @PostMapping("")
     public Employee createEmployee(@RequestBody Employee employee){
         return employeeService.createEmployee(employee);
