@@ -3,14 +3,19 @@ package com.ee.employeesportal.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.apache.catalina.filters.AddDefaultCharsetFilter;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.time.LocalDate;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
+@Table(name = "employee")
 public class Employee {
+    @Id
     private Long empId;
     private String firstName;
     private String lastName;
@@ -22,8 +27,4 @@ public class Employee {
     private String designation;
     private int experience;
     private String bio;
-    private Address presentAddress;
-    private Address permanentAddress;
-
-
 }
