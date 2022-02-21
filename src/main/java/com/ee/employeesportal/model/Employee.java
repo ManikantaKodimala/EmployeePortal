@@ -20,11 +20,11 @@ public class Employee {
     private Long empId;
     private String firstName;
     private String lastName;
-    @Pattern(regexp ="^[A-Za-z0-9+_.-]+@(everest\\.engineering)$" )
+    @Pattern(regexp = "^[A-Za-z0-9+_.-]+@(everest\\.engineering)$")
     private String everestMailId;
     @Email
     private String personalMailId;
-    @Size(min=4)
+    @Size(min = 4)
     private String password;
     private LocalDate dateOfBirth;
     private LocalDate dateOfJoin;
