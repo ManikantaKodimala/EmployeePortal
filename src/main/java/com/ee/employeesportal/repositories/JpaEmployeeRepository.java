@@ -8,5 +8,4 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface JpaEmployeeRepository extends JpaRepository<Employee, Long> {
 
     Page<Employee> findByFirstNameContainingOrLastNameContaining(String query, String s, Pageable sortedByName);
-
 }

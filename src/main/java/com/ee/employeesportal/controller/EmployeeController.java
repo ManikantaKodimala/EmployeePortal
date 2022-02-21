@@ -38,4 +38,9 @@ public class EmployeeController {
     public EmployeeResult getEmployeeByQuery(@RequestParam String query, @RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "5") int pageSize) {
         return employeeService.searchEmployeeBy(query, page, pageSize);
     }
+
+    @PostMapping("")
+    public Employee createEmployee(@RequestBody Employee employee) {
+        return employeeService.createEmployee(employee);
+    }
 }

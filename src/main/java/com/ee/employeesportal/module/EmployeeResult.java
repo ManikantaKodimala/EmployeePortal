@@ -18,7 +18,6 @@ public class EmployeeResult {
     private boolean hasPrevious;
 
     public EmployeeResult(Page<Employee> employeePage) {
-        System.out.println("***" + employeePage.getContent());
         this.setData(employeePage.getContent());
         this.setTotalElements(employeePage.getTotalElements());
         this.setTotalPages(employeePage.getTotalPages());
