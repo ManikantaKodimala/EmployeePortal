@@ -9,10 +9,10 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
-import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
@@ -56,5 +56,13 @@ public class EmployeeService {
     }
     public Employee createEmployee(Employee employee) {
         return jpaEmployeeRepository.save(employee);
+    }
+    @Transactional(readOnly = true)
+    public EmployeeResult getAllEmployees(int page, int pageSize, Sort sortBy) {
+        if(sortBy == null){
+            sortBy= Sort.by(Sort.Direction.ASC,"firstName");
+        }
+        Pageable pageableEmployee = PageRequest.of(page-1, pageSize, sortBy);
+        return new EmployeeResult(jpaEmployeeRepository.findAll(pageableEmployee));
     }
 }
