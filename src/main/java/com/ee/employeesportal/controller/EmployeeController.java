@@ -1,7 +1,6 @@
 package com.ee.employeesportal.controller;
 
 import com.ee.employeesportal.model.Employee;
-import com.ee.employeesportal.repositories.EmployeeRepository;
 import com.ee.employeesportal.services.EmployeeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -15,10 +14,6 @@ import java.util.List;
 @RequestMapping("/api/employees")
 public class EmployeeController {
     private final EmployeeService employeeService;
-    @GetMapping("")
-    public List<Employee> getAllEmployees(){
-       return employeeService.getAllEmployees();
-    }
 
     @PutMapping("/{id}")
     public ResponseEntity<Employee> updateEmployeeDetails(@PathVariable("id") long id,@RequestBody Employee employee){
@@ -27,5 +22,12 @@ public class EmployeeController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
         return ResponseEntity.ok(employeeDetails);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Employee> deleteEmployeeDetails(@PathVariable(name = "id") long id){
+        Employee employee = employeeService.deleteEmployee(id);
+        if (employee == null) return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        return ResponseEntity.ok(employee);
     }
 }

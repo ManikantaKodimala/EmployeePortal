@@ -15,14 +15,6 @@ import java.util.Optional;
 public class EmployeeService {
     private final JpaEmployeeRepository jpaEmployeeRepository;
 
-    public List<Employee> getAllEmployees(){
-        return jpaEmployeeRepository.findAll();
-    }
-
-    public Employee createEmployee(Employee employee) {
-        return jpaEmployeeRepository.save(employee);
-    }
-
     public Employee updateEmployeeDetails(Employee newEmployee, long id) {
         Optional<Employee> employee=jpaEmployeeRepository.findById(id);
         if(employee.isEmpty()){
@@ -30,5 +22,14 @@ public class EmployeeService {
         }
         newEmployee.setEmpId(id);
         return jpaEmployeeRepository.save(newEmployee);
+    }
+
+    public Employee deleteEmployee(long id) {
+        Optional<Employee> employee = jpaEmployeeRepository.findById(id);
+        if(employee.isPresent()) {
+            jpaEmployeeRepository.deleteById(id);
+            return employee.get();
+        }
+        return null;
     }
 }
