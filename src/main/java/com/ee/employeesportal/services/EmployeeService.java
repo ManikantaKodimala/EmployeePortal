@@ -1,10 +1,12 @@
 package com.ee.employeesportal.services;
 
 import com.ee.employeesportal.advices.EmployeeException;
+import com.ee.employeesportal.dto.EmployeeDto;
 import com.ee.employeesportal.model.Employee;
 import com.ee.employeesportal.module.EmployeeResult;
 import com.ee.employeesportal.repositories.JpaEmployeeRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -35,7 +37,7 @@ public class EmployeeService {
             jpaEmployeeRepository.deleteById(id);
             return employee.get();
         }
-        throw new EmployeeException("Please provide correct id");
+        throw new EmployeeException("Employee with "+id+" does not exist");
     }
 
     @Transactional(readOnly = true)
@@ -51,10 +53,15 @@ public class EmployeeService {
     public EmployeeResult searchEmployeeBy(String query, int page, int pageSize) {
         Sort sort = Sort.by(Direction.ASC, "firstName");
         Pageable pageableEmployee = PageRequest.of(page - 1, pageSize, sort);
-        return new EmployeeResult(jpaEmployeeRepository.findByFirstNameContainingOrLastNameContaining(query, query, pageableEmployee));
+        Page<Employee> employees = jpaEmployeeRepository.findByFirstNameContainingOrLastNameContaining(query, query, pageableEmployee);
+        return new EmployeeResult(employees.map(EmployeeDto::new));
 
     }
     public Employee createEmployee(Employee employee) {
+        Employee byEverestMailId = jpaEmployeeRepository.findByEverestMailId(employee.getEverestMailId());
+        if(byEverestMailId != null){
+            throw new EmployeeException("There Exist a employee with "+byEverestMailId.getEverestMailId());
+        }
         return jpaEmployeeRepository.save(employee);
     }
     @Transactional(readOnly = true)
@@ -63,6 +70,7 @@ public class EmployeeService {
             sortBy= Sort.by(Sort.Direction.ASC,"firstName");
         }
         Pageable pageableEmployee = PageRequest.of(page-1, pageSize, sortBy);
-        return new EmployeeResult(jpaEmployeeRepository.findAll(pageableEmployee));
+        Page<Employee> employees = jpaEmployeeRepository.findAll(pageableEmployee);
+        return new EmployeeResult(employees.map(EmployeeDto::new));
     }
 }
