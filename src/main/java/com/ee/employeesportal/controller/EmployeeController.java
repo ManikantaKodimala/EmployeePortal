@@ -1,5 +1,6 @@
 package com.ee.employeesportal.controller;
 
+import com.ee.employeesportal.dto.EmployeeDto;
 import com.ee.employeesportal.model.Employee;
 import com.ee.employeesportal.module.EmployeeResult;
 import com.ee.employeesportal.services.EmployeeService;
@@ -22,8 +23,8 @@ public class EmployeeController {
     private final EmployeeService employeeService;
 
     @PutMapping("/{id}")
-    public ResponseEntity<Employee> updateEmployeeDetails(@PathVariable("id") long id, @RequestBody Employee employee) {
-        Employee employeeDetails = employeeService.updateEmployeeDetails(employee, id);
+    public ResponseEntity<EmployeeDto> updateEmployeeDetails(@PathVariable("id") long id, @RequestBody Employee employee) {
+        EmployeeDto employeeDetails = new EmployeeDto(employeeService.updateEmployeeDetails(employee, id));
         if (employeeDetails == null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
@@ -31,14 +32,14 @@ public class EmployeeController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Employee> deleteEmployeeDetails(@PathVariable(name = "id") long id) {
-        Employee employee = employeeService.deleteEmployee(id);
+    public ResponseEntity<EmployeeDto> deleteEmployeeDetails(@PathVariable(name = "id") long id) {
+        EmployeeDto employee = new EmployeeDto(employeeService.deleteEmployee(id));
         return ResponseEntity.ok(employee);
     }
 
     @GetMapping(value = "/{empId}")
-    public ResponseEntity<Employee> getEmployeeById(@PathVariable Long empId) {
-        return ResponseEntity.status(HttpStatus.OK).body(employeeService.getEmployeeById(empId));
+    public ResponseEntity<EmployeeDto> getEmployeeById(@PathVariable Long empId) {
+        return ResponseEntity.status(HttpStatus.OK).body(new EmployeeDto(employeeService.getEmployeeById(empId)));
     }
 
     @GetMapping("/search")
@@ -47,8 +48,8 @@ public class EmployeeController {
     }
 
     @PostMapping("")
-    public Employee createEmployee(@RequestBody Employee employee) {
-        return employeeService.createEmployee(employee);
+    public ResponseEntity<EmployeeDto> createEmployee(@RequestBody Employee employee) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(new EmployeeDto(employeeService.createEmployee(employee)));
     }
 
     private Direction getSortDirection(String direction) {
