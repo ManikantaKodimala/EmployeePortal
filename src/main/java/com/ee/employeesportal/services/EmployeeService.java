@@ -73,4 +73,13 @@ public class EmployeeService {
         Page<Employee> employees = jpaEmployeeRepository.findAll(pageableEmployee);
         return new EmployeeResult(employees.map(EmployeeDto::new));
     }
+
+    public Direction getSortDirection(String direction) {
+        if (direction.equals("asc")) {
+            return Direction.ASC;
+        } else if (direction.equals("desc")) {
+            return Direction.DESC;
+        }
+        return Direction.ASC;
+    }
 }
