@@ -28,7 +28,6 @@ public class ExceptionInterceptor extends ResponseEntityExceptionHandler {
     public ResponseEntity<Map<String, String>> handleConstraintViolationException(ConstraintViolationException ex
     ) {
         ConstraintViolation<?> violation = ex.getConstraintViolations().iterator().next();
-        System.out.println(violation.getPropertyPath());
         Map<String,String> message= new HashMap<>();
         message.put("message",violation.getPropertyPath()+" is invalid");
         return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
