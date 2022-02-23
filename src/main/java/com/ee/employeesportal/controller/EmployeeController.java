@@ -48,8 +48,8 @@ public class EmployeeController {
     }
 
     @PostMapping("")
-    public EmployeeDto createEmployee(@RequestBody Employee employee) {
-        return new EmployeeDto(employeeService.createEmployee(employee));
+    public ResponseEntity<EmployeeDto> createEmployee(@RequestBody Employee employee) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(new EmployeeDto(employeeService.createEmployee(employee)));
     }
 
     private Direction getSortDirection(String direction) {
