@@ -1,6 +1,5 @@
 package com.ee.employeesportal.dto;
 
-import com.ee.employeesportal.model.Address;
 import com.ee.employeesportal.model.Employee;
 import lombok.Data;
 
@@ -22,17 +21,17 @@ public class EmployeeDto {
     private AddressDto permanentAddress;
 
     public EmployeeDto(Employee employee) {
-        this.id = employee.getEmpId();
+        this.id = employee.getId();
         this.firstName = employee.getFirstName();
         this.lastName = employee.getLastName();
-        this.dob = employee.getDateOfBirth();
-        this.doj = employee.getDateOfJoin();
-        this.everestEmailId = employee.getEverestMailId();
-        this.personalEmailId = employee.getPersonalMailId();
+        this.dob = employee.getDob();
+        this.doj = employee.getDoj();
+        this.everestEmailId = employee.getEverestEmailId();
+        this.personalEmailId = employee.getPersonalEmailId();
         this.designation = employee.getDesignation();
         this.bio = employee.getBio();
         this.presentAddress = new AddressDto(employee.getPresentAddress());
         this.permanentAddress = new AddressDto(employee.getPermanentAddress());
-        this.experienceInYears = employee.getExperience();
+        this.experienceInYears = employee.getExperienceInYears();
     }
 }

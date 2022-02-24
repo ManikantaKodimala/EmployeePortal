@@ -27,7 +27,7 @@ public class EmployeeService {
         if (employee.isEmpty()) {
             return null;
         }
-        newEmployee.setEmpId(id);
+        newEmployee.setId(id);
         return jpaEmployeeRepository.save(newEmployee);
     }
 
@@ -58,9 +58,9 @@ public class EmployeeService {
 
     }
     public Employee createEmployee(Employee employee) {
-        Employee byEverestMailId = jpaEmployeeRepository.findByEverestMailId(employee.getEverestMailId());
+        Employee byEverestMailId = jpaEmployeeRepository.findByEverestEmailId(employee.getEverestEmailId());
         if(byEverestMailId != null){
-            throw new EmployeeException("There Exist a employee with "+byEverestMailId.getEverestMailId());
+            throw new EmployeeException("There Exist a employee with "+byEverestMailId.getEverestEmailId());
         }
         return jpaEmployeeRepository.save(employee);
     }
