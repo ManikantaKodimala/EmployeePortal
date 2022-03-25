@@ -22,3 +22,8 @@ services:
       - POSTGRES_USER=astro
       - POSTGRES_PASSWORD=astro063
       - POSTGRES_DB=employee
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data :
