@@ -82,7 +82,7 @@ public class EmployeeServiceTest {
 
     @Test
     void shouldReturnDescendingOrder() {
-        assertTrue(employeeService.getSortDirection("desc").isAscending());
+        assertTrue(employeeService.getSortDirection("desc").isDescending());
     }
 
     @Test
