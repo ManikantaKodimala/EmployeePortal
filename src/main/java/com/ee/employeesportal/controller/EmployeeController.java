@@ -52,15 +52,6 @@ public class EmployeeController {
         return ResponseEntity.status(HttpStatus.CREATED).body(new EmployeeDto(employeeService.createEmployee(employee)));
     }
 
-    private Direction getSortDirection(String direction) {
-        if (direction.equals("asc")) {
-            return Direction.ASC;
-        } else if (direction.equals("desc")) {
-            return Direction.DESC;
-        }
-        return Direction.ASC;
-    }
-
     @GetMapping("")
     public EmployeeResult getAllEmployees(@RequestParam(name = "page", defaultValue = "1") int page, @RequestParam(name = "page_size", defaultValue = "5") int pageSize, @RequestParam(name = "sort_by", required = false) Optional<List<String>> sortBy) {
         List<Order> orders;
@@ -76,10 +67,10 @@ public class EmployeeController {
         if (sort_by.get(0).contains(",")) {
             for (String sortOrder : sort_by) {
                 String[] sort = sortOrder.split(",");
-                orders.add(new Order(getSortDirection(sort[1]), sort[0]));
+                orders.add(new Order(employeeService.getSortDirection(sort[1]), sort[0]));
             }
         } else {
-            orders.add(new Order(getSortDirection(sort_by.get(1)), sort_by.get(0)));
+            orders.add(new Order(employeeService.getSortDirection(sort_by.get(1)), sort_by.get(0)));
         }
         return orders;
     }
