@@ -1,0 +1,27 @@
+- hosts: all
+  become: yes
+  become_user: root
+  become_method: sudo
+  tasks:
+    - name: Install git
+      apt:
+        name: git
+        state: present
+        update_cache: yes
+    - name: Cloning to Backend Repository
+      git:
+        repo: 'https://github.com/ManikantaKodimala/EmployeePortal.git'
+        dest: /home/ubuntu/astro
+        clone: yes
+        update: yes
+    - name: Running Application
+      ansible.builtin.shell:
+        chdir: /home/ubuntu/astro/EmployeePortal
+        cmd: mvn -B package --file pom.xml
+
+    - name: Cloning to Fronted  Repository
+        git:
+          repo: 'https://github.com/ManikantaKodimala/employeePorrtalUI'
+          dest: /home/ubuntu/astro
+          clone: yes
+          update: yes
