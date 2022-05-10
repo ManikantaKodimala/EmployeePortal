@@ -23,7 +23,8 @@ jobs:
       run: terraform --version
 
     - name: Changing directory into terraform
-      run : cd terraform
+      run : |
+            pwd
 
     - name: Terraform init
       env:
