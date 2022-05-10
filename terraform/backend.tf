@@ -10,7 +10,7 @@ resource "aws_instance" "astro_backend" {
       type        = "ssh"
       host        = self.public_ip
       user        = "ubuntu"
-      private_key = file("~/.ssh/my-ec2-ssh")
+      private_key = file("my-ec2-ssh")
       timeout     = "4m"
    }
 }
@@ -46,7 +46,7 @@ resource "aws_security_group" "main" {
 
 resource "aws_key_pair" "devloper_key" {
   key_name   = "my-ec2-ssh"
-  public_key = file("~/.ssh/my-ec2-ssh.pub")
+  public_key = file("my-ec2-ssh.pub")
 }
 
 output "target" {

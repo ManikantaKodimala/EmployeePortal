@@ -31,7 +31,6 @@ jobs:
             terraform init -input=false
     - name: Generating ssh keys
       run: |
-            cd ~/.ssh
             pwd
             ssh-keygen -t rsa -b 2048 -P "manni"  -N "manni"  -f my-ec2-ssh -m PEM -y
     - name: Terraform validation
