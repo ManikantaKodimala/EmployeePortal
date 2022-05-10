@@ -54,6 +54,8 @@ jobs:
             cd terraform
             terraform apply -auto-approve
             terraform output -json
+            sudo apt update
+            sudo apt install -y jq
             terraform output -json | jq ".target.value"
             export IP_ADDRESS=$(terraform output -json | jq ".target.value")
             echo $IP_ADDRESS
