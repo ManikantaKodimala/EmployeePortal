@@ -49,6 +49,6 @@ resource "aws_key_pair" "devloper_key" {
   public_key = file("~/.ssh/my-ec2-ssh.pub")
 }
 
-output "abc" {
+output "target" {
     value = aws_instance.astro_backend.public_ip
 }

@@ -22,25 +22,36 @@ jobs:
     - name: Verify Terraform version
       run: terraform --version
 
-    - name: Changing directory into terraform
-      run : |
-            pwd
-            cd terraform
-            pwd
-
     - name: Terraform init
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       run: |
-            pwd
+            cd terraform
             terraform init -input=false
 
     - name: Terraform validation
-      run: terraform validate
+      run: |
+            cd terraform
+            terraform validate
 
     - name: Terraform Plan
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      run: terraform plan
+      run: |
+            cd terraform
+            terraform plan
+
+    - name: Terraform Apply
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      run: |
+            cd terraform
+            terraform apply -auto-approve
+            terraform output -json
+            terraform output -json | jq ".target.value"
+            export IP_ADDRESS=$(terraform output -json | jq ".target.value")
+            echo $IP_ADDRESS
+
