@@ -20,14 +20,11 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
+    - uses: hashicorp/setup-terraform@v2
+      with:
+        terraform_version: 1.1.9
     - name: Install Terraform
-      env:
-        TERRAFORM_VERSION: "1.1.9"
-      run: |
-        tf_version=$TERRAFORM_VERSION
-        wget https://releases.hashicorp.com/terraform/"$tf_version"/terraform_"$tf_version"_linux_amd64.zip
-        unzip terraform_"$tf_version"_linux_amd64.zip
-        sudo mv terraform /usr/local/bin/
+
     - name: Verify Terraform version
       run: terraform --version
 
