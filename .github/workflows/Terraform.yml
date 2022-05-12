@@ -54,6 +54,6 @@ jobs:
             cd terraform
             terraform apply -auto-approve -input=false
             terraform output -json
-            export IP_ADDRESS=$(terraform output -json | jq ".target.value")
+            export IP_ADDRESS1=$(terraform output -raw abc)
             echo $IP_ADDRESS
 
