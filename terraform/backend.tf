@@ -29,18 +29,44 @@ resource "aws_security_group" "main" {
       to_port          = 0
     }
   ]
- ingress                = [
-   {
-     cidr_blocks      = [ "0.0.0.0/0", ]
-     description      = ""
-     from_port        = 22
-     ipv6_cidr_blocks = []
-     prefix_list_ids  = []
-     protocol         = "tcp"
-     security_groups  = []
-     self             = false
-     to_port          = 22
-  }
+  ingress                = [
+    {
+      cidr_blocks      = [ "0.0.0.0/0", ]
+      description      = ""
+      from_port        = 22
+      ipv6_cidr_blocks = []
+      prefix_list_ids  = []
+      protocol         = "tcp"
+      security_groups  = []
+      self             = false
+      to_port          = 22
+    },
+    {
+      cidr_blocks      = [
+        "0.0.0.0/0",
+      ]
+      description      = ""
+      from_port        = 3000
+      ipv6_cidr_blocks = []
+      prefix_list_ids  = []
+      protocol         = "tcp"
+      security_groups  = []
+      self             = false
+      to_port          = 3000
+    },
+    {
+      cidr_blocks      = [
+        "0.0.0.0/0",
+      ]
+      description      = ""
+      from_port        = 8080
+      ipv6_cidr_blocks = []
+      prefix_list_ids  = []
+      protocol         = "tcp"
+      security_groups  = []
+      self             = false
+      to_port          = 8080
+    }
   ]
 }
 
@@ -49,6 +75,13 @@ resource "aws_key_pair" "devloper_key" {
   public_key = var.public_key
 }
 
+resource "aws_s3_bucket" "terraform_state" {
+  bucket = var.bucket_name
+
+  versioning {
+    enabled = true
+  }
+}
 output "target" {
     value = aws_instance.astro_backend.public_ip
 }
