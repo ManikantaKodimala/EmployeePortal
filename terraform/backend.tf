@@ -16,6 +16,7 @@ resource "aws_instance" "astro_backend" {
 }
 
 resource "aws_security_group" "main" {
+  name = "astro-deploy-security-group"
   egress = [
     {
       cidr_blocks      = [ "0.0.0.0/0", ]
@@ -98,7 +99,7 @@ resource "aws_db_instance" "employee" {
 
 #terraform {
 #  backend "s3" {
-#    bucket = "astro-terraform-cd-backend"
+#    bucket = var.bucket_name
 #    key    = "terraform.tfstate"
 #    region = "ap-south-1"
 #    encrypt                 = true
