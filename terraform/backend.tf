@@ -82,6 +82,31 @@ resource "aws_s3_bucket" "terraform_state" {
     enabled = true
   }
 }
+
+resource "aws_db_instance" "employee" {
+  identifier             = "astro-db"
+  instance_class         = "db.t3.micro"
+  allocated_storage      = 5
+  engine                 = "postgres"
+  engine_version         = "14.2"
+  name                   = "employee"
+  username               = "astro"
+  password               = "astro063"
+  publicly_accessible    = true
+  skip_final_snapshot    = true
+}
+
+terraform {
+  backend "s3" {
+    bucket = "astro-terraform-cd-backend"
+    key    = "terraform.tfstate"
+    region = "ap-south-1"
+    encrypt                 = true
+#    shared_credentials_file = "/Users/kodimalamanikanta/.aws/config"
+#    profile                 = "ee-mani-devp-profile"
+  }
+}
+
 output "target" {
     value = aws_instance.astro_backend.public_ip
 }
