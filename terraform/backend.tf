@@ -97,16 +97,16 @@ resource "aws_db_instance" "employee" {
   skip_final_snapshot    = true
 }
 
-#terraform {
-#  backend "s3" {
-#    bucket = var.bucket_name
-#    key    = "terraform.tfstate"
-#    region = "ap-south-1"
-#    encrypt                 = true
-##    shared_credentials_file = "/Users/kodimalamanikanta/.aws/config"
-##    profile                 = "ee-mani-devp-profile"
-#  }
-#}
+terraform {
+  backend "s3" {
+    bucket = var.bucket_name
+    key    = "terraform.tfstate"
+    region = "ap-south-1"
+    encrypt                 = true
+#    shared_credentials_file = "/Users/kodimalamanikanta/.aws/config"
+#    profile                 = "ee-mani-devp-profile"
+  }
+}
 
 output "target" {
     value = aws_instance.astro_backend.public_ip
