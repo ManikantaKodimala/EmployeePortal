@@ -65,8 +65,15 @@ jobs:
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v1
-      - run : pwd
-      - name: Running demo file
-        run: touch test.txt
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+          cache: 'maven'
+
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml
+
       - name: Running springboot
-        run:  mvn spring-boot:run -Dspring-boot.run.arguments="--spring.datasource.url=jdbc:postgresql://astro-db.ca48wkfuajrq.ap-south-1.rds.amazonaws.com/employee"
+        run:  java -jar target/employeesportal-0.0.1-SNAPSHOT.jar -Dspring-boot.run.arguments="--spring.datasource.url=jdbc:postgresql://astro-db.ca48wkfuajrq.ap-south-1.rds.amazonaws.com/employee"
