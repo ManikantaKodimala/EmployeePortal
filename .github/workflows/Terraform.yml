@@ -68,3 +68,5 @@ jobs:
       - run : pwd
       - name: Running demo file
         run: touch test.txt
+      - name: Running springboot
+        run:  mvn spring-boot:run -Dspring-boot.run.arguments="--spring.datasource.url=jdbc:postgresql://astro-db.ca48wkfuajrq.ap-south-1.rds.amazonaws.com/employee"
