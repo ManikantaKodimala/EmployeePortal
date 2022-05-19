@@ -67,7 +67,7 @@ jobs:
 
 #      with:
 #        playbookName: "ansible/script.yaml"
-#        inventoryFile: "ansible/inventory.yaml"
+#        inventoryFile: "ansible/inventory"
 #        keyFile: ${{secrets.TF_VAR_PRIVATE_KEY}}
 #        extraVars: "-e target=${{secrets.TARGET}} "
 #        verbosity: "vvv"
