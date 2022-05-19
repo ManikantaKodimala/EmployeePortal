@@ -70,7 +70,7 @@ jobs:
             echo 10
             touch ssh-key
             echo $sshkey > ssh-key
-            cat sshkey
+            cat ssh-key
             pwd
             ansible-playbook -i inventory script.yaml --private-key ss-key -vv
 
