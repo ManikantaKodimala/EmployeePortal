@@ -1,0 +1,81 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.3)
+
+2022-05-19 15:24:50.564  INFO 54119 --- [           main] c.e.e.EmployeesportalApplication         : Starting EmployeesportalApplication v0.0.1-SNAPSHOT using Java 16.0.2 on Manikanta-MacBook-Pro-2.local with PID 54119 (/Users/kodimalamanikanta/IdeaProjects/employeesportal/target/employeesportal-0.0.1-SNAPSHOT.jar started by kodimalamanikanta in /Users/kodimalamanikanta/IdeaProjects/employeesportal)
+2022-05-19 15:24:50.567  INFO 54119 --- [           main] c.e.e.EmployeesportalApplication         : No active profile set, falling back to default profiles: default
+2022-05-19 15:24:51.915  INFO 54119 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-05-19 15:24:51.996  INFO 54119 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 58 ms. Found 1 JPA repository interfaces.
+2022-05-19 15:24:52.749  INFO 54119 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-05-19 15:24:52.764  INFO 54119 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-05-19 15:24:52.764  INFO 54119 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-05-19 15:24:52.838  INFO 54119 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-05-19 15:24:52.838  INFO 54119 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2168 ms
+2022-05-19 15:24:53.087  INFO 54119 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-05-19 15:24:53.170  INFO 54119 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.4.Final
+2022-05-19 15:24:53.419  INFO 54119 --- [           main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-05-19 15:24:53.572  INFO 54119 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-05-19 15:24:57.545  INFO 54119 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-05-19 15:24:57.615  INFO 54119 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-05-19 15:24:59.111  INFO 54119 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-05-19 15:24:59.125  INFO 54119 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-05-19 15:24:59.677  WARN 54119 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-05-19 15:25:00.206  INFO 54119 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-05-19 15:25:00.255  INFO 54119 --- [           main] c.e.e.EmployeesportalApplication         : Started EmployeesportalApplication in 10.711 seconds (JVM running for 11.642)
+2022-05-19 15:25:03.059  INFO 54119 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-05-19 15:25:03.060  INFO 54119 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-05-19 15:25:03.065  INFO 54119 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2022-05-19 15:34:38.432  WARN 54119 --- [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m40s675ms).
+2022-05-19 15:49:25.421  WARN 54119 --- [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m46s948ms).
+2022-05-19 15:59:42.521  WARN 54119 --- [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m47s23ms).
+2022-05-19 16:09:59.536  WARN 54119 --- [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m47s11ms).
+2022-05-19 16:19:47.007  WARN 54119 --- [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m47s471ms).
+2022-05-19 16:30:04.413  WARN 54119 --- [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m46s696ms).
+2022-05-19 16:40:21.533  WARN 54119 --- [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m47s111ms).
+2022-05-19 16:50:38.354  WARN 54119 --- [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m46s808ms).
+2022-05-19 17:00:23.380  WARN 54119 --- [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m45s25ms).
+2022-05-19 17:10:42.406  WARN 54119 --- [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m49s21ms).
+2022-05-19 17:20:59.394  WARN 54119 --- [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m46s976ms).
+2022-05-19 17:30:46.399  WARN 54119 --- [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m47s5ms).
+2022-05-19 17:41:03.159  WARN 54119 --- [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m46s754ms).
+2022-05-19 17:51:20.126  WARN 54119 --- [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m46s960ms).
+2022-05-19 18:01:06.620  WARN 54119 --- [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m46s494ms).
+2022-05-19 18:06:02.521  WARN 54119 --- [nio-8080-exec-9] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@26f849e4 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2022-05-19 18:06:07.524  WARN 54119 --- [nio-8080-exec-9] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@3707695b (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2022-05-19 18:06:12.541  WARN 54119 --- [nio-8080-exec-9] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@db7d9d7 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2022-05-19 19:44:38.204  WARN 54119 --- [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=28m53s840ms).
+2022-05-19 21:32:35.435  WARN 54119 --- [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h47m57s273ms).
+2022-05-19 21:35:14.194  WARN 54119 --- [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m38s759ms).
+2022-05-19 21:44:46.624  WARN 54119 --- [nio-8080-exec-8] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@2559b654 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2022-05-19 21:44:51.631  WARN 54119 --- [nio-8080-exec-8] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@78bdd32c (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2022-05-19 21:44:56.632  WARN 54119 --- [nio-8080-exec-8] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@5964711d (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2022-05-19 21:45:01.637  WARN 54119 --- [nio-8080-exec-8] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@1b55d3e0 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2022-05-19 21:45:06.645  WARN 54119 --- [nio-8080-exec-8] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@7771333d (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2022-05-19 21:45:11.647  WARN 54119 --- [nio-8080-exec-8] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@7aa0eeaf (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+Exception in thread "http-nio-8080-exec-8" java.lang.NoClassDefFoundError: ch/qos/logback/classic/spi/ThrowableProxy
+	at ch.qos.logback.classic.spi.LoggingEvent.<init>(LoggingEvent.java:119)
+	at ch.qos.logback.classic.Logger.buildLoggingEventAndAppend(Logger.java:419)
+	at ch.qos.logback.classic.Logger.filterAndLog_0_Or3Plus(Logger.java:383)
+	at ch.qos.logback.classic.Logger.log(Logger.java:765)
+	at org.slf4j.bridge.SLF4JBridgeHandler.callLocationAwareLogger(SLF4JBridgeHandler.java:221)
+	at org.slf4j.bridge.SLF4JBridgeHandler.publish(SLF4JBridgeHandler.java:303)
+	at java.logging/java.util.logging.Logger.log(Logger.java:979)
+	at java.logging/java.util.logging.Logger.doLog(Logger.java:1006)
+	at java.logging/java.util.logging.Logger.logp(Logger.java:1283)
+	at org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:175)
+	at org.apache.juli.logging.DirectJDKLog.error(DirectJDKLog.java:141)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1750)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:831)
+2022-05-19 21:45:13.103  WARN 54119 --- [nio-8080-exec-9] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@2e6774ef (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2022-05-19 21:45:18.104  WARN 54119 --- [nio-8080-exec-9] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@e1f95d5 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2022-05-19 21:45:23.106  WARN 54119 --- [nio-8080-exec-9] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@345b27f7 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2022-05-19 21:45:28.109  WARN 54119 --- [nio-8080-exec-9] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@315ee054 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.

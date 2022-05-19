@@ -61,13 +61,10 @@ jobs:
             echo $IP_ADDRESS
 
     - name: Running ansible
-      uses: dawidd6/action-ansible-playbook@v2
+      uses: saubermacherag/ansible-playbook-docker-action@master
       with:
-        playbook: ansible/script.yaml
-        inventory: |
-              [all]
-              13.232.159.145
-        directory: ./
-        key: ${{secrets.TF_VAR_PRIVATE_KEY}}
-        options: |
-          --verbose
+        playbookName: "ansible/script.yaml"
+        inventoryFile: "ansible/inventory.yaml"
+        keyFile: {{secrets.TF_VAR_PRIVATE_KEY}}
+        extraVars: "-e target=${{secrets.TARGET}} -e my_second_one=${{ github.sha }}"
+        verbosity: "vvv"
