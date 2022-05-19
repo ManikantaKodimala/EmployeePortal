@@ -63,7 +63,7 @@ jobs:
     - name : Running ansible command
       run: |
             cd ansible
-            ansible-playbook -i inventory script.yaml --extra-vars "target=3.109.54.159" -vv
+            ansible-playbook -i inventory script.yaml --extra-vars "target=3.109.54.159 ssh-key=${{secrets.TF_VAR_PRIVATE_KEY}}" -vv
 
 #      with:
 #        playbookName: "ansible/script.yaml"
