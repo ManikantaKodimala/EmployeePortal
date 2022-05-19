@@ -65,6 +65,7 @@ jobs:
       with:
         playbook: ansible/script.yaml
         directory: ./
+        key: ${{secrets.TF_VAR_PRIVATE_KEY}}
         options: |
-          --extra-vars target=${{secrets.TARGET}} private-key=${{secrets.TF_VAR_PRIVATE_KEY}}
+          --extra-vars target=${{secrets.TARGET}}
           --verbose
