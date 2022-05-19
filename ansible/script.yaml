@@ -15,8 +15,9 @@
         clone: yes
         update: yes
     - name: Installing maven
-        ansible.builtin.shell:
-          cmd: sudo apt install maven -y
+      ansible.builtin.shell:
+        cmd: sudo apt install maven -y
+
     - name: Building server Application
       ansible.builtin.shell:
         chdir: /home/ubuntu/astro/EmployeePortal

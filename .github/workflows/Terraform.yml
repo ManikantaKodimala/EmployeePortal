@@ -64,6 +64,7 @@ jobs:
       uses: dawidd6/action-ansible-playbook@v2
       with:
         playbook: ansible/script.yaml
+        inventory: ansible/inventory
         directory: ./
         key: ${{secrets.TF_VAR_PRIVATE_KEY}}
         options: |
