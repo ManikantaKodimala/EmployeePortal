@@ -65,7 +65,7 @@ jobs:
       with:
         playbook: ansible/script.yaml
         inventory: |
-              [ all ]
+              [all]
               13.232.159.145
         directory: ./
         key: ${{secrets.TF_VAR_PRIVATE_KEY}}
