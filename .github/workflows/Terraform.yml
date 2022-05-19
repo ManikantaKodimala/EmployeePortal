@@ -60,8 +60,6 @@ jobs:
             export IP_ADDRESS1=$(terraform output -raw abc)
             echo $IP_ADDRESS
 
-    - name: Running ansible
-      uses: saubermacherag/ansible-playbook-docker-action@master
     - name : Running ansible command
       run: |
             cd ansible
