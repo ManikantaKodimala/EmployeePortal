@@ -61,9 +61,12 @@ jobs:
             echo $IP_ADDRESS
 
     - name : Running ansible command
+      env:
+        target: ${{secrets.TARGET}}
+        ssh-key: ${{secrets.TF_VAR_PRIVATE_KEY}}
       run: |
             cd ansible
-            ansible-playbook -i inventory script.yaml --extra-vars `target=3.109.54.159 ssh-key=${{secrets.TF_VAR_PRIVATE_KEY}}` -vv
+            ansible-playbook -i inventory script.yaml -vv
 
 #      with:
 #        playbookName: "ansible/script.yaml"
