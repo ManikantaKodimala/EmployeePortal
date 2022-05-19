@@ -68,6 +68,7 @@ jobs:
             cd ansible
             echo $target
             echo 10
+            touch ssh-key
             echo $sshkey > ssh-key
             cat sshkey
             pwd
