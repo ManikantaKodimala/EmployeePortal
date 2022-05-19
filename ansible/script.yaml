@@ -14,10 +14,19 @@
         dest: /home/ubuntu/astro
         clone: yes
         update: yes
-    - name: Running Application
+    - name: Installing maven
+        ansible.builtin.shell:
+          cmd: sudo apt install maven -y
+    - name: Building server Application
       ansible.builtin.shell:
         chdir: /home/ubuntu/astro/EmployeePortal
         cmd: mvn -B package --file pom.xml
+
+    - name: Running server Application in background
+      ansible.builtin.shell:
+        chdir: /home/ubuntu/astro/EmployeePortal
+        cmd: |
+              nohup java -jar target/employeesportal-0.0.1-SNAPSHOT.jar &
 
     - name: Cloning to Fronted  Repository
         git:

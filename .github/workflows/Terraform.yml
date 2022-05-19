@@ -60,42 +60,11 @@ jobs:
             export IP_ADDRESS1=$(terraform output -raw abc)
             echo $IP_ADDRESS
 
-  On-EC2:
-    needs: [terraform_apply]
-    runs-on: self-hosted
-      # Containers must run in Linux based operating systems
-      # Docker Hub image that `container-job` executes in
-#    services:
-#        # Label used to access the service container
-#      postgres:
-#          # Docker Hub image
-#        image: postgres
-#          # Provide the password for postgres
-#        env:
-#            POSTGRES_USER: astro
-#            POSTGRES_PASSWORD: astro063
-#            POSTGRES_DB: employee
-#          # Set health checks to wait until postgres has started
-#        options: >-
-#          --health-cmd pg_isready
-#          --health-interval 10s
-#          --health-timeout 5s
-#          --health-retries 5
-#        ports:
-#            # Maps tcp port 5432 on service container to the host
-#          - 5432:5432
-    #
-    steps:
-      - uses: actions/checkout@v1
-      - name: Set up JDK 11
-        uses: actions/setup-java@v3
-        with:
-          java-version: '11'
-          distribution: 'temurin'
-          cache: 'maven'
-
-      - name: Build with Maven
-        run: mvn -B package --file pom.xml
-
-      - name: Running springboot
-        run:  java -jar target/employeesportal-0.0.1-SNAPSHOT.jar
+    - name: Running ansible
+      uses: dawidd6/action-ansible-playbook@v2
+      with:
+        playbook: ansible/script.yaml
+        directory: ./
+        options: |
+          --extra-vars target=${{secrets.TARGET}} private-key=${{secrets.TF_VAR_PRIVATE_KEY}}
+          --verbose
