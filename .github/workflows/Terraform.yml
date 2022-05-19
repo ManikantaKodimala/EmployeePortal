@@ -62,9 +62,13 @@ jobs:
 
     - name: Running ansible
       uses: saubermacherag/ansible-playbook-docker-action@master
-      with:
-        playbookName: "ansible/script.yaml"
-        inventoryFile: "ansible/inventory.yaml"
-        keyFile: ${{secrets.TF_VAR_PRIVATE_KEY}}
-        extraVars: "-e target=${{secrets.TARGET}} -e my_second_one=${{ github.sha }}"
-        verbosity: "vvv"
+      run: |
+            cd ansible
+            ansible-playbook -i inventory script.yml --extra-vars "target=3.109.54.159" -vv
+
+#      with:
+#        playbookName: "ansible/script.yaml"
+#        inventoryFile: "ansible/inventory.yaml"
+#        keyFile: ${{secrets.TF_VAR_PRIVATE_KEY}}
+#        extraVars: "-e target=${{secrets.TARGET}} "
+#        verbosity: "vvv"
