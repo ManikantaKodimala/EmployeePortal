@@ -63,15 +63,15 @@ jobs:
     - name : Running ansible command
       env:
         target: ${{secrets.TARGET}}
-        ssh-key: ${{secrets.TF_VAR_PRIVATE_KEY}}
+        sshkey: ${{secrets.TF_VAR_PRIVATE_KEY}}
       run: |
             cd ansible
             echo $target
             echo 10
-            echo $ssh-key > ssh-key
-            cat ssh-key
+            echo $sshkey > ssh-key
+            cat sshkey
             pwd
-            ansible-playbook -i inventory script.yaml --private-key ss-key.pem -vv
+            ansible-playbook -i inventory script.yaml --private-key ss-key -vv
 
 #      with:
 #        playbookName: "ansible/script.yaml"
