@@ -30,8 +30,8 @@
               nohup java -jar target/employeesportal-0.0.1-SNAPSHOT.jar &
 
     - name: Cloning to Fronted  Repository
-        git:
-          repo: 'https://github.com/ManikantaKodimala/employeePorrtalUI'
-          dest: /home/ubuntu/astro
-          clone: yes
-          update: yes
+      git:
+        repo: 'https://github.com/ManikantaKodimala/employeePorrtalUI'
+        dest: /home/ubuntu/astro
+        clone: yes
+        update: yes
