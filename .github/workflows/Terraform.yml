@@ -70,5 +70,4 @@ jobs:
         directory: ./
         key: ${{secrets.TF_VAR_PRIVATE_KEY}}
         options: |
-          --extra-vars target=${{secrets.TARGET}}
           --verbose
