@@ -63,7 +63,7 @@ jobs:
     - name : Running ansible command
       env:
         target: ${{secrets.TARGET}}
-        sshkey: ${{secrets.TF_VAR_PRIVATE_KEY}}
+        sshkey: ${{secrets.TF_VAR_PUBLIC_KE}}
       run: |
             cd ansible
             echo $target
