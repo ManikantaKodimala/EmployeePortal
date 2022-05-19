@@ -66,6 +66,8 @@ jobs:
         ssh-key: ${{secrets.TF_VAR_PRIVATE_KEY}}
       run: |
             cd ansible
+            echo $target
+            echo 10
             echo $ssh-key > ssh-key
             cat ssh-key
             pwd
