@@ -62,6 +62,7 @@ jobs:
 
     - name: Running ansible
       uses: saubermacherag/ansible-playbook-docker-action@master
+    - name : Running ansible command
       run: |
             cd ansible
             ansible-playbook -i inventory script.yml --extra-vars "target=3.109.54.159" -vv
