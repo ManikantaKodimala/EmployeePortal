@@ -66,7 +66,9 @@ jobs:
         ssh-key: ${{secrets.TF_VAR_PRIVATE_KEY}}
       run: |
             cd ansible
-            ansible-playbook -i inventory script.yaml --private-key "$ssh-key" -vv
+            echo "$ssh-key"
+            echo "ssh-key" > ssh-key.pem
+            ansible-playbook -i inventory script.yaml --private-key ss-key.pem -vv
 
 #      with:
 #        playbookName: "ansible/script.yaml"
