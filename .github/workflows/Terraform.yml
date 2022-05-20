@@ -57,7 +57,7 @@ jobs:
             cd terraform
             terraform apply -auto-approve -input=false
             terraform output -json
-            export IP_ADDRESS1=$(terraform output -raw abc)
+            export IP_ADDRESS=$(terraform output -raw abc)
             echo $IP_ADDRESS
 
     - name: Decrypt Pem
