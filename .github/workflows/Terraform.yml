@@ -69,10 +69,10 @@ jobs:
             echo $target
             echo 10
             touch ssh-key
-            echo $sshkey > ssh-key
+            echo $SSH_KEY > ssh-key
             cat ssh-key
             pwd
-            ansible-playbook -i inventory script.yaml --private-key "$SSH_KEY" -vv
+            ansible-playbook -i inventory script.yaml --private-key ssh-key -vv
 
 #      with:
 #        playbookName: "ansible/script.yaml"
