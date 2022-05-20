@@ -71,6 +71,7 @@ jobs:
             touch ssh-key
             echo $SSH_KEY > ssh-key
             cat ssh-key
+            chmod 400 ssh-key
             find ssh-key
             pwd
             ansible-playbook -i inventory script.yaml --private-key ssh-key -vv
