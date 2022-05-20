@@ -66,15 +66,13 @@ jobs:
         SSH_KEY: ${{secrets.TF_VAR_PRIVATE_KEY}}
       run: |
             cd ansible
-            echo $target
-            echo 10
-            touch ssh-key
-            echo $SSH_KEY > ssh-key
-            cat ssh-key
-            chmod 400 ssh-key
-            find ssh-key
-            pwd
-            ansible-playbook -i inventory script.yaml --private-key ssh-key -vv
+            echo "$SSH_KEY" > ~/.vault_pass.txt
+            mkdir ~/.ssh
+            ansible-vault view --vault-password-file=~/.vault_pass.txt ansible/ssh_key.txt.secret > ~/.ssh/id_rsa
+            chmod 0600 ~/.ssh/id_rsa
+
+            ansible-playbook -e "build_sha=$GITHUB_SHA" --vault-password-file ~/.vault_pass.txt -i inventory script.yaml
+#            ansible-playbook -i inventory script.yaml --private-key ssh-key -vv
 
 #      with:
 #        playbookName: "ansible/script.yaml"
