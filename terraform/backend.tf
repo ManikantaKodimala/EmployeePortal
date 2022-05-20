@@ -1,6 +1,6 @@
 resource "aws_instance" "astro_backend" {
     ami = "ami-05ba3a39a75be1ec4"
-    instance_type = "t2.micro"
+    instance_type = "t2.medium"
     tags = {
             Name = var.name
     }
@@ -103,8 +103,6 @@ terraform {
     key    = "terraform.tfstate"
     region = "ap-south-1"
     encrypt                 = true
-#    shared_credentials_file = "/Users/kodimalamanikanta/.aws/config"
-#    profile                 = "ee-mani-devp-profile"
   }
 }
 
