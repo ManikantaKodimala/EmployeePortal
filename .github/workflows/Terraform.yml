@@ -22,6 +22,14 @@ jobs:
       with:
         terraform_wrapper: false
 
+    - name: Decrypt Pem
+      env:
+        LARGE_SECRET_PASSPHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
+      run: |
+            mkdir $HOME/secrets
+            gpg --quiet --batch --yes --decrypt --passphrase="$LARGE_SECRET_PASSPHRASE" --output $HOME/secrets/my_private_key.pem my-ec2-ssh.gpg
+            chmod 400 $HOME/secrets/my_private_key.pem
+
     - name: Verify Terraform version
       run: terraform --version
 
@@ -64,14 +72,10 @@ jobs:
             echo $IP_ADDRESS
             export INSTACE_ENDPOINT=$(terraform output -raw instance_endpoint)
             echo $INSTACE_ENDPOINT
+            cd ../ansible
+            echo $IP_ADDRESS
 
-    - name: Decrypt Pem
-      env:
-        LARGE_SECRET_PASSPHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
-      run: |
-            mkdir $HOME/secrets
-            gpg --quiet --batch --yes --decrypt --passphrase="$LARGE_SECRET_PASSPHRASE" --output $HOME/secrets/my_private_key.pem my-ec2-ssh.gpg
-            chmod 400 $HOME/secrets/my_private_key.pem
+
 
     - name: Running ansible command
       env:
