@@ -1,5 +1,0 @@
-all:
-  hosts:
-    3.7.51.251:
-      ansible_ssh_extra_args='-o StrictHostKeyChecking=no'
-      ansible_user: ubuntu
