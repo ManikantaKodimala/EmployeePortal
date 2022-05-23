@@ -62,9 +62,9 @@ jobs:
             terraform output -json
             export IP_ADDRESS=$(terraform output -raw target)
             echo $IP_ADDRESS
-            terraform output instance_endpoint -json
-            export INSTACE_ENDPOINT = $(terraform output -raw instance_endpoint)
-            echo $INSTACE_ENDPOINT
+#            terraform output instance_endpoint -json
+#            export INSTACE_ENDPOINT = $(terraform output -raw instance_endpoint)
+#            echo $INSTACE_ENDPOINT
 
     - name: Decrypt Pem
       env:
