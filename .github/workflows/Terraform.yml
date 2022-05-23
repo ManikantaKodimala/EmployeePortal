@@ -66,6 +66,7 @@ jobs:
       run: |
             mkdir $HOME/secrets
             gpg --quiet --batch --yes --decrypt --passphrase="$LARGE_SECRET_PASSPHRASE" --output $HOME/secrets/my_private_key.pem my-ec2-ssh.gpg
+            chmod 400 $HOME/secrets/my_private_key.pem
 
     - name: Running ansible command
       env:
