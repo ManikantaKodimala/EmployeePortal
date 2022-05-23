@@ -26,17 +26,17 @@
       ansible.builtin.shell:
         cmd: sudo npm install pm2 -g
 
-    - name: Building server Application
-      ansible.builtin.shell:
-        chdir: /home/ubuntu/astro/
-        cmd: mvn -B package --file pom.xml
+#    - name: Building server Application
+#      ansible.builtin.shell:
+#        chdir: /home/ubuntu/astro/
+#        cmd: mvn -B package --file pom.xml
 
     - name: Running server Application in background
       ansible.builtin.shell:
         chdir: /home/ubuntu/astro/
         cmd: |
               kill $(lsof -t -i:8080)
-              nohup java -jar target/employeesportal-0.0.1-SNAPSHOT.jar &
+              nohup mvn spring-boot:run -Dspring-boot.run.arguments="--spring.datasource.url=jdbc:postgresql://astro-db.crli2ms66ure.ap-south-1.rds.amazonaws.com/employee" &
 
     - name: Cloning to Fronted  Repository
       git:

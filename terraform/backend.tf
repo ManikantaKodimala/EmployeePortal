@@ -117,3 +117,8 @@ resource "aws_eip_association" "eip_assoc" {
 output "target" {
     value = aws_instance.astro_backend.public_ip
 }
+
+output "instance_endpoint" {
+  value       = join("", aws_db_instance.employee.*.endpoint)
+  description = "DNS Endpoint of the instance"
+}
