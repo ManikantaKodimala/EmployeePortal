@@ -62,9 +62,8 @@ jobs:
             terraform output -json
             export IP_ADDRESS=$(terraform output -raw target)
             echo $IP_ADDRESS
-#            terraform output instance_endpoint -json
-#            export INSTACE_ENDPOINT = $(terraform output -raw instance_endpoint)
-#            echo $INSTACE_ENDPOINT
+            export INSTACE_ENDPOINT = $(terraform output -raw instance_endpoint)
+            echo $INSTACE_ENDPOINT
 
     - name: Decrypt Pem
       env:
@@ -81,4 +80,4 @@ jobs:
       run: |
         cd ansible
         echo $IP_ADDRESS
-        ansible-playbook -i inventory.yaml script.yaml --private-key $HOME/secrets/my_private_key.pem --extra-vars "target = $IP_ADDRESS "
+#        ansible-playbook -i inventory.yaml script.yaml --private-key $HOME/secrets/my_private_key.pem --extra-vars "target = $IP_ADDRESS "
