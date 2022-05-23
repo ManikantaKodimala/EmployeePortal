@@ -99,7 +99,7 @@ resource "aws_db_instance" "employee" {
 
 terraform {
   backend "s3" {
-    bucket = "astro-terraform-backend-storage"
+    bucket = "astro-backend-storage-terraform"
     key    = "terraform.tfstate"
     region = "ap-south-1"
     encrypt                 = true
