@@ -67,3 +67,10 @@ jobs:
             mkdir $HOME/secrets
             gpg --quiet --batch --yes --decrypt --passphrase="$LARGE_SECRET_PASSPHRASE" --output $HOME/secrets/my_private_key.pem my-ec2-ssh.gpg
 
+    - name: Running ansible command
+      env:
+        TARGET: ${{secrets.TARGET}}
+        SSH_KEY: ${{secrets.TF_VAR_PRIVATE_KEY}}
+      run: |
+        cd ansible
+        ansible-playbook -i inventory script.yaml --private-key $HOME/secrets/my_private_key.pem

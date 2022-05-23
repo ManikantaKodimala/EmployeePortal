@@ -76,13 +76,13 @@ resource "aws_key_pair" "devloper_key" {
   public_key = var.public_key
 }
 
-resource "aws_s3_bucket" "terraform_state" {
-  bucket = var.bucket_name
-
-  versioning {
-    enabled = true
-  }
-}
+#resource "aws_s3_bucket" "terraform_state" {
+#  bucket = var.bucket_name
+#
+#  versioning {
+#    enabled = true
+#  }
+#}
 
 resource "aws_db_instance" "employee" {
   identifier             = "astro-db"
