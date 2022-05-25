@@ -119,6 +119,6 @@ output "target" {
 }
 
 output "instance_endpoint" {
-  value       = aws_db_instance.employee.*.address
+  value       = join("", aws_db_instance.employee.*.address)
   description = "DNS Endpoint of the instance"
 }
