@@ -17,7 +17,9 @@
     - name: Installing maven
       ansible.builtin.shell:
         cmd: sudo apt install maven -y
-
+    - copy:
+        dest: /home/ubuntu/target.txt
+        content: "{{ instance_endpoint }}"
     - name: Running server Application in background
       ansible.builtin.shell:
         chdir: /home/ubuntu/astro/
