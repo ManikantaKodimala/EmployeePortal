@@ -68,7 +68,7 @@ jobs:
             cd terraform
             terraform apply -auto-approve -input=false
             export IP_ADDRESS=$(terraform output -raw target)
-            export INSTACE_ENDPOINT=$(terraform output -raw instance_endpoint)
+            export INSTACE_ENDPOINT=$(terraform output instance_endpoint)
             cd ../ansible
             echo $IP_ADDRESS
             echo $INSTANCE_ENDPOINT
