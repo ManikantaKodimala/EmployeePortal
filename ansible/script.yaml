@@ -18,7 +18,7 @@
       ansible.builtin.shell:
         cmd: sudo apt install maven -y
     - copy:
-        dest: /home/ubuntu/target.txt
+        dest: /home/ubuntu/db.txt
         content: "{{ instance_endpoint }}"
     - name: Running server Application in background
       ansible.builtin.shell:
