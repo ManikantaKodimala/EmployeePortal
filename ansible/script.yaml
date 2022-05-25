@@ -23,4 +23,4 @@
         chdir: /home/ubuntu/astro/
         cmd: |
               kill $(lsof -t -i:8080)
-              nohup mvn spring-boot:run -Dspring-boot.run.arguments= "--spring.datasource.url=jdbc:postgresql://{{ instance_endpoint }}/employee" &
+              nohup mvn spring-boot:run -Dspring-boot.run.arguments= "--spring.datasource.url=jdbc:postgresql://astro-db.crli2ms66ure.ap-south-1.rds.amazonaws.com/employee" &
