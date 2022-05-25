@@ -71,4 +71,5 @@ jobs:
             export INSTACE_ENDPOINT=$(terraform output -raw instance_endpoint)
             cd ../ansible
             echo $IP_ADDRESS
-            ansible-playbook -i inventory.yaml script.yaml --private-key $HOME/secrets/my_private_key.pem --extra-vars "target=$IP_ADDRESS "
+            echo $INSTANCE_ENDPOINT
+            ansible-playbook -i inventory.yaml script.yaml --private-key $HOME/secrets/my_private_key.pem --extra-vars "target=$IP_ADDRESS instance_endpoint=$INSTANCE_ENDPOINT"
